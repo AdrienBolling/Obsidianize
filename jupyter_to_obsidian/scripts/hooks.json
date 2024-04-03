@@ -1,0 +1,4 @@
+{
+  "default": "# Find staged .ipynb files and convert them to Markdown without staging the .md files\ngit diff --cached --name-only | grep '.ipynb$' | while IFS= read -r file; do\n# Call the Python conversion script, passing the filename\nrefresh_jupyter_to_obsidian '$file'\ndone"
+
+}
