@@ -100,15 +100,18 @@ obsidian_pyplot(fig, "Simple plot")
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+## Concerns
+
+- Please note that these won't be compatible with plt.show() or fig.show() or df which have been placed in a loop.
+However, you shouldn't be doing that anyway, as it is not a good practice to display multiple figures in a loop in a notebook, use subplots instead.
+
+- Due to the issue of getting the name of a notebook while it is being executed, this package has been designed to be 
+compatible with use for Jupyter, JupyterLab, DataSpell, Pycharm, and VSCode.
 
 ## Additional information
 Converting a notebook won't execute the code cells. To do so, you can either execute the notebook by yourself, 
 which will export the assets if you used the package properly, or do it later in Obsidian thanks to Execute Code by 
 running the cells.
-
-
-Please note that these won't be compatible with plt.show() or fig.show() or df which have been placed in a loop.
-However, you shouldn't be doing that anyway, as it is not a good practice to display multiple figures in a loop in a notebook, use subplots instead.
 
 ## Reporting issues
 This package is still under development, and there might be some issues with the conversion of the notebooks.
