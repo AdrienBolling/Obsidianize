@@ -115,5 +115,5 @@ running the cells.
 
 ## Reporting issues
 This package is still under development, and there might be some issues with the conversion of the notebooks.
-Please report any issues you encounter on the [GitHub repository](githum.com/AdrienBolling/Obsidianize) or on 
+Please report any issues you encounter on the [GitHub repository](github.com/AdrienBolling/Obsidianize) or on 
 [Discord](https://discord.gg/FDsCDgnrQ8). As this is my first proper project feel free to give me any feedback on the code or the package itself.
