@@ -1,5 +1,5 @@
 """
-This file contains the utils functions used in the view module of the jupyter_to_obsidian package.
+This file contains the utils functions used in the view module of the obsidianize package.
 """
 from pathlib import Path
 from .pyplot import view_pyplot

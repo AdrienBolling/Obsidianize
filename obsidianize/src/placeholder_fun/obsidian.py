@@ -6,8 +6,8 @@ import pandas as pd
 import plotly
 from matplotlib import pyplot as plt
 
-from jupyter_to_obsidian.src.utils.path_utils import get_notebook_path, get_assets_path, in_obsidian_env
-from jupyter_to_obsidian.src.utils.sanitize import sanitize_name
+from obsidianize.src.utils.path_utils import get_notebook_path, get_assets_path, in_obsidian_env
+from obsidianize.src.utils.sanitize import sanitize_name
 from IPython.display import display
 
 

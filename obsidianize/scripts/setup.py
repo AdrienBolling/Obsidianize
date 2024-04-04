@@ -89,7 +89,7 @@ def setup_git_hooks(path: str, which: str = "pre-commit", hook: str = "default")
         os.chmod(hook_path, 0o755)
 
 
-def setup_git_ignore(path: str):
+def setup_git_ignore_md(path: str):
     """
     Function to add .md files to .gitignore (except README.md)
     :param path: str: path to the folder to set up the git ignore
@@ -113,6 +113,29 @@ def setup_git_ignore(path: str):
         with open(os.path.join(path, ".gitignore"), "a") as f:
             f.write("*.md\n")
             f.write("!README.md\n")
+
+def setup_git_ignore_assets(path: str):
+    """
+    Function to add assets folder to .gitignore
+    :param path: str: path to the folder to set up the git ignore
+    :return:
+    """
+    # Check if the path is a directory
+    if not os.path.isdir(path):
+        raise ValueError("path should lead to a folder")
+    # Check if the path is a git repository
+    if not os.path.isdir(os.path.join(path, ".git")):
+        raise ValueError("path should lead to a git repository")
+
+    # Check if the .gitignore file exists
+    if not os.path.isfile(os.path.join(path, ".gitignore")):
+        # Create the .gitignore file
+        with open(os.path.join(path, ".gitignore"), "w") as f:
+            f.write("assets/\n")
+    else:
+        # Add the assets folder to the .gitignore
+        with open(os.path.join(path, ".gitignore"), "a") as f:
+            f.write("assets/\n")
 
 
 def main_cli():

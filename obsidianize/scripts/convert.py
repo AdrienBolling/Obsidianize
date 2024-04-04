@@ -3,7 +3,7 @@ This script converts one or several Jupyter notebook to an Obsidian markdown fil
 To convert a single notebook, run with a file path as argument.
 To convert all notebooks in a folder, run with the folder path as argument.
 Run the following command in the terminal:
-jupyter_to_obsidian path
+obsidianize path
 """
 
 import os
@@ -13,10 +13,10 @@ from pathlib import Path
 import nbformat
 import fire
 
-from jupyter_to_obsidian.src.utils.path_utils import get_repo_path
-from jupyter_to_obsidian.src.utils.to_markdown import convert_to_markdown
-from jupyter_to_obsidian.src.utils.format_md import format_markdown
-from jupyter_to_obsidian.src.utils.save_md import save_markdown
+from obsidianize.src.utils.path_utils import get_repo_path
+from obsidianize.src.utils.to_markdown import convert_to_markdown
+from obsidianize.src.utils.format_md import format_markdown
+from obsidianize.src.utils.save_md import save_markdown
 
 
 def main(

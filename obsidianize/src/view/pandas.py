@@ -1,8 +1,8 @@
 import os
 from pathlib import Path
 
-from jupyter_to_obsidian.src.utils.path_utils import get_assets_path, get_vault_root
-from jupyter_to_obsidian.src.utils.sanitize import get_figure_title
+from obsidianize.src.utils.path_utils import get_assets_path, get_vault_root
+from obsidianize.src.utils.sanitize import get_figure_title
 
 
 def view_pandas(
