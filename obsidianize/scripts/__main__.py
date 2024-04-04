@@ -77,11 +77,16 @@ class Obsidianize:
         :param path: str: path to the folder to refresh
         :return: nothing (will convert the files in place)
         """
-        # Check if the path is a directory
+        # If path does not exist, assume the file has been deleted in the commit
+        # in this case we still want to keep the assets as to not lose them in the obsidian notes
+        if not os.path.exists(path):
+            print(f"{path} does not exist")
+            return
+        # Check if the path is a directory or a .ipynb file
         if os.path.isdir(path):
             convert_all_notebooks_to_md(path)
-        else:
-            raise ValueError("path should lead to a folder")
+        elif path.endswith(".ipynb"):
+            convert_notebook_to_md(path)
 
         # Make the path absolute
         path = os.path.abspath(path)

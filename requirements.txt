@@ -9,3 +9,4 @@ ipython~=8.15.0
 numpy~=1.26.4
 setuptools~=68.0.0
 IPython~=8.15.0
+kaleido~=0.2.1

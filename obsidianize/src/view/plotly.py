@@ -33,7 +33,7 @@ def view_plotly(
     assets_folder = Path(assets_folder).relative_to(obsidian_vault_path)
 
     # Create the line to embed the figure in the markdown, as a plotly figure it will be a .html file
-    display_queue.append(f"![{figure_title}]({os.path.join(assets_folder, figure_title)}.html)")
+    display_queue.append(f"![{figure_title}]({os.path.join(assets_folder, figure_title)}.png)")
 
     # Increment the figure counter
     display_counter['plotly'] += 1

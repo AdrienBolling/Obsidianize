@@ -132,15 +132,20 @@ def obsidian_plotly(
         fig: plotly.graph_objs.Figure,
         title: str,
         path_to_notebook: str = None,
+        svg: bool = True,
+        html: bool = True,
 ):
     """
     Function to display a plotly figure in Obsidian. Replace your usual `fig.show()` with this function to display
     figures in Obsidian. This function is used as a way to parse the show() method of plotly figures as well as the
     title of the figure.
+    This will save the figure as an asset, by default in 3 formats (png for embedding, svg for article writing, html for interactivity)
     :param fig: str: the plotly figure to display
     :param title: str: the title of the figure
     :param path_to_notebook: str: the path to the notebook, this argument is optional as long as you're using Jupyter
     / JupyterLab / VSCode / Jetbrains IDEs
+    :param svg: bool: whether to save the figure in svg format (by default True)
+    :param html: bool: whether to save the figure in html format (by default True)
     :return: None
     """
     # Check if there is a figure
@@ -178,4 +183,8 @@ def obsidian_plotly(
         fig.show()
 
     # In all cases, save the figure
-    fig.write_html(os.path.join(assets_folder, f"{figure_title}.html"), auto_open=False)
+    if svg:
+        fig.write_image(os.path.join(assets_folder, f"{figure_title}.svg"))
+    if html:
+        fig.write_html(os.path.join(assets_folder, f"{figure_title}.html"), auto_open=False)
+    fig.write_image(os.path.join(assets_folder, f"{figure_title}.png"))

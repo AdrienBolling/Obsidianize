@@ -66,8 +66,29 @@ def setup_git_hooks(path: str, which: str = "pre-commit", hook: str = "default")
         # Add the hook to the existing one
         with open(hook_path, "r") as f:
             existing_hook = f.read()
-        if "jupyter_displays_for_obsidian" in existing_hook:
-            raise ValueError("The hook is already set up for jupyter_displays_for_obsidian")
+        if "#ObsidianizeHook" in existing_hook:
+            # If the hook is already set up, remove it and add it again, without the first and last lines of the new hook
+            existing_hook = existing_hook.split("\n")
+            # Find the two lines with the # ObsidianizeHook
+            start = None
+            end = None
+            for i, line in enumerate(existing_hook):
+                if line == "# ObsidianizeHook":
+                    if start is None:
+                        start = i
+                    else:
+                        end = i
+                        break
+            # Take the new content of the hook, remove the first and last lines
+            hook_content = hook_content.split("\n")[1:-1]
+            # Add the new content of the hook to the existing hook
+            final_hook = existing_hook[:start] + hook_content + existing_hook[end:]
+            # Write the final hook
+            with open(hook_path, "w") as f:
+                f.write("\n".join(final_hook))
+            os.chmod(hook_path, 0o755)
+            return
+
         with open(hook_path, "a") as f:
             # Find the line with the exit command
             lines = existing_hook.split("\n")

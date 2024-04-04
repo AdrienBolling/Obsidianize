@@ -51,6 +51,9 @@ def convert_notebook_to_md(path: str):
     # Resolve the path to make it absolute
     path = str(cwd / Path(path))
 
+    # Check if the path exists, if not do nothing
+    if not os.path.exists(path):
+        return
     # Check if the path is a file
     if not os.path.isfile(path):
         raise ValueError("path should lead to a file")
@@ -78,6 +81,10 @@ def convert_all_notebooks_to_md(folder: str):
     :param folder:
     :return:
     """
+
+    # Check if the path exists, if not do nothing
+    if not os.path.exists(folder):
+        return
 
     # Check if the path is a folder
     if not os.path.isdir(folder):
